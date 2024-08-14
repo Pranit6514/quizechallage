@@ -35,7 +35,8 @@ class _MyQuizeState extends State<MyQuize> {
 
     Map<String, dynamic> map = await auth.GetRequest(
         'getQuiz?quizId=66a9c58c1a60f095cb37d128',
-        token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsiX2lkIjoiNjZhMGE3YzQ2ODBlNDFiZjRkMTJhZmVlIiwiZW1haWwiOiJzYWhpbEBnbWFpbC5jb20iLCJfX3YiOjAsImNyZWF0ZWRfYXQiOiIyMDI0LTA3LTI0VDA2OjU4OjQxLjUxMVoiLCJuYW1lIjoiU2FoaWwiLCJvcmdhbml6YXRpb25JZCI6IjY2ODNiNGE0OTliMTM0YmIyYmU2MjI5NCIsIm90cCI6IjE2MzUiLCJvdHBHZW5lcmF0ZWRBdCI6IjIwMjQtMDctMjlUMDc6NDE6NDguNTYxWiIsInBob25lTnVtYmVyIjoiNzg5MDkwOTA5MDkwIiwicm9sZUlkIjoiNjY4M2E1ZjExZDdmNmQxOTE5YzQ3MWQ2In0sImlhdCI6MTcyMjIzODkxNCwiZXhwIjoxNzUzNzk2NTE0fQ.DZy_JLnfK9rebZDdJqvT-ssPRQOapExG_SO8ZGQDZ6w");
+        token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsiX2lkIjoiNjZhMGE3YzQ2ODBlNDFiZjRkMTJhZmVlIiwiZW1haWwiOiJzYWhpbEBnbWFpbC5jb20iLCJfX3YiOjAsImNyZWF0ZWRfYXQiOiIyMDI0LTA3LTI0VDA2OjU4OjQxLjUxMVoiLCJuYW1lIjoiU2FoaWwiLCJvcmdhbml6YXRpb25JZCI6IjY2ODNiNGE0OTliMTM0YmIyYmU2MjI5NCIsIm90cCI6IjE2MzUiLCJvdHBHZW5lcmF0ZWRBdCI6IjIwMjQtMDctMjlUMDc6NDE6NDguNTYxWiIsInBob25lTnVtYmVyIjoiNzg5MDkwOTA5MDkwIiwicm9sZUlkIjoiNjY4M2E1ZjExZDdmNmQxOTE5YzQ3MWQ2In0sImlhdCI6MTcyMjIzODkxNCwiZXhwIjoxNzUzNzk2NTE0fQ.DZy_JLnfK9rebZDdJqvT-ssPRQOapExG_SO8ZGQDZ6w");
     print('templates Data mapppp$map');
 
     if (map['status'] == true) {
@@ -66,10 +67,9 @@ class _MyQuizeState extends State<MyQuize> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ResultPage(
-          correctAnswers: correctAnswers,
-          totalQuestions: quizedata.length,
-          currentIndex:currentindex
-        ),
+            correctAnswers: correctAnswers,
+            totalQuestions: quizedata.length,
+            currentIndex: currentindex),
       ),
     );
   }
@@ -116,9 +116,8 @@ class _MyQuizeState extends State<MyQuize> {
                             ),
                             child: Text(option,
                                 style: TextStyle(
-                                  color: isSelected
-                                      ? Colors.white
-                                      : Colors.black,
+                                  color:
+                                      isSelected ? Colors.white : Colors.black,
                                 )),
                           ),
                         );
@@ -137,61 +136,23 @@ class _MyQuizeState extends State<MyQuize> {
                               correctAnswers++;
                               print('ifff');
                               Fluttertoast.showToast(
-            // msg:selectedOption ==
-            //                     quizedata[currentindex]['correctOption']
-                                // ? 
-                              msg:  'correct',
-                                // :"Incorrect",
-            timeInSecForIosWeb: 5,
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.TOP,
-            backgroundColor: 
-            // selectedOption ==
-            //                     quizedata[currentindex]['correctOption']?
-                                Colors.green,
-                                // :Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //      SnackBar(
-                            //       // alignment: Alignment.topCenter,
-                            //        behavior: SnackBarBehavior.floating,
-                            //       content: Align(
-                            //         alignment:  Alignment.topCenter,
-                            //         child: Text('Correct!')),
-                            //       backgroundColor: Colors.green,
-                            //     ),
-                            //   );
-                            // } else {
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //     SnackBar(
-                            //        behavior: SnackBarBehavior.floating,
-                            //       content: Align(
-                                    
-                                    
-                            //         alignment:  Alignment.topCenter,child: Text('Incorrect!')),
-                            //       backgroundColor: Colors.red,
-                            //     ),
-                            //   );
-                            }
-                            else{
-                               print('elseeee');
+                                  msg: 'correct',
+                                  timeInSecForIosWeb: 5,
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.TOP,
+                                  backgroundColor: Colors.green,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+                            } else {
+                              print('elseeee');
                               Fluttertoast.showToast(
-            // msg:selectedOption ==
-            //                     quizedata[currentindex]['correctOption']
-                                // ? 
-                              msg:  'Incorrect',
-                                // :"Incorrect",
-            timeInSecForIosWeb: 5,
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.TOP,
-            backgroundColor: 
-            // selectedOption ==
-            //                     quizedata[currentindex]['correctOption']?
-                                Colors.red,
-                                // :Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
+                                  msg: 'Incorrect',
+                                  timeInSecForIosWeb: 5,
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.TOP,
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
                             }
                           }
                         : null,
